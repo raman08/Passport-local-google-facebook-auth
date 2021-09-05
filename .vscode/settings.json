@@ -1,0 +1,10 @@
+{
+	"instantMongo": {
+		"connections": [
+			{
+				"name": "Mongo Connection",
+				"uri": "mongodb://localhost:27017/passportApp"
+			}
+		]
+	}
+}
