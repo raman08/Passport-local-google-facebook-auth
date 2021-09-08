@@ -1,7 +1,10 @@
 const express = require('express');
 const passport = require('passport');
 
-const { getToken } = require('../controller/auth.controller');
+const {
+	getToken,
+	localUserRegestration,
+} = require('../controller/auth.controller');
 
 require('../utils/passport')();
 
@@ -23,6 +26,14 @@ router.get(
 router.get(
 	'/google/callback',
 	passport.authenticate('google', { session: false }),
+	getToken
+);
+
+router.post('/local/new', localUserRegestration);
+
+router.post(
+	'/local/verify',
+	passport.authenticate('local', { session: false }),
 	getToken
 );
 
